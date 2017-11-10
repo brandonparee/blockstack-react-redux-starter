@@ -1,35 +1,32 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { loginWithBlockstack } from '../../actions/userActions'
 import * as blockstack from 'blockstack'
 
-const Login = ({component, ...rest}) => {
-  const loginWithBlockstack = () => {
-    // Open the blockstack browser for sign in
-    // After choosing an Id to sign in with, redirect back to the login page
-    blockstack.redirectToSignIn(`${window.location.origin}/login`)
+const mapStateToProps = ({user}) => {
+  return {
+    user
   }
+}
 
-  console.log(blockstack.isSignInPending())
-  // Handle sign in from blockstack after redirect
-  // Once sign in completes (promise is fulfilled), redirect to an authenticated only route
-  if (blockstack.isSignInPending()) {
-    blockstack.handlePendingSignIn()
-      .then((obj) => {
-        window.location.replace(`${window.location.origin}/authenticated-route`)
-      })
+const mapDispatchToProps = (dispatch) => {
+  return  {
+    onClick: () => {
+      dispatch(loginWithBlockstack())
+    }
   }
+}
 
+const Login = ({user, onClick, ...rest}) => {
+  console.log(blockstack.loadUserData())
   return (
-    <div className='Login'>
-      {
-        (blockstack.isSignInPending() === false)
-        ? <div>
-          <h2>Login with Blockstack</h2>
-          <button onClick={loginWithBlockstack}>Log In</button>
-        </div>
-        : <h2>Logging In...</h2>
-      }
+      <div className='Login'>
+        <h2>Login with Blockstack</h2>
+        <button onClick={onClick}>Log In</button>
     </div>
   )
 }
 
-export default Login
+const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login)
+
+export default LoginContainer

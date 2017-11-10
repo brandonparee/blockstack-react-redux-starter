@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 import Authenticated from '../components/Authenticated/Authenticated'
 import Public from '../components/Public/Public'
 
+import HandleLogin from '../pages/Login/HandleLogin'
 import Home from '../pages/Home/Home'
 import Login from '../pages/Login/Login'
 import Logout from '../pages/Logout/Logout'
@@ -16,6 +17,7 @@ class App extends Component {
         <Route path='/' exact component={Home} />
         <Route path='/logout' exact component={Logout} />
         <Public path='/login' name='login' component={Login} />
+        <Public path='/handle-login' name='handle-login' component={HandleLogin} />
         <Authenticated path='/authenticated-route' name='authenticated-route' component={Secret} />
       </main>
     )
