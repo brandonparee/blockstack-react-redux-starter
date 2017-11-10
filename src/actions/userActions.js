@@ -16,7 +16,7 @@ export const fetchUserData = () => {
       payload: {
         isAuthenticated: true,
         profile: blockstack.loadUserData()
-        }
+      }
     }
   } else if (blockstack.isSignInPending()) {
     return {

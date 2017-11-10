@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { loginWithBlockstack } from '../../actions/userActions'
-import * as blockstack from 'blockstack'
 
 const mapStateToProps = ({user}) => {
   return {
@@ -10,7 +9,7 @@ const mapStateToProps = ({user}) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return  {
+  return {
     onClick: () => {
       dispatch(loginWithBlockstack())
     }
@@ -18,11 +17,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const Login = ({user, onClick, ...rest}) => {
-  console.log(blockstack.loadUserData())
   return (
-      <div className='Login'>
-        <h2>Login with Blockstack</h2>
-        <button onClick={onClick}>Log In</button>
+    <div className='Login'>
+      <h2>Login with Blockstack</h2>
+      <button onClick={onClick}>Log In</button>
     </div>
   )
 }

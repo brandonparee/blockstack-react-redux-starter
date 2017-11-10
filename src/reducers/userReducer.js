@@ -5,14 +5,14 @@ const initialState = {
   error: null
 }
 
-export const userReducer = (state=initialState, action) => {
-  switch(action.type) {
+export const userReducer = (state = initialState, action) => {
+  switch (action.type) {
     case 'FETCH_USER_DATA':
       return { ...state, ...action.payload }
     case 'USER_LOGIN':
       return { ...state, isLoginPending: true }
     case 'USER_LOGOUT':
-      return { ...initialState}
+      return { ...initialState }
     case 'USER_HANDLE_LOGIN':
       return { ...state, isLoginPending: false }
     case 'USER_LOGGED_IN':
@@ -23,7 +23,7 @@ export const userReducer = (state=initialState, action) => {
         profile: action.payload
       }
     case 'USER_LOGIN_ERROR':
-      return { ...state, error: action.payload}
+      return { ...state, error: action.payload }
     default:
       return state
   }

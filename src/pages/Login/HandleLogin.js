@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { handleBlockstackLogin } from '../../actions/userActions'
-import * as blockstack from 'blockstack'
 
 const mapStateToProps = ({user}) => {
   return {
@@ -10,7 +9,7 @@ const mapStateToProps = ({user}) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return  {
+  return {
     handlePendingSignIn: () => {
       dispatch(handleBlockstackLogin())
     }

@@ -1,7 +1,6 @@
 import React from 'react'
 import { userLogout } from '../../actions/userActions'
 import { connect } from 'react-redux'
-import * as blockstack from 'blockstack'
 
 const mapStateToProps = ({user}) => {
   return {
@@ -10,7 +9,7 @@ const mapStateToProps = ({user}) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return  {
+  return {
     handleLogout: () => {
       dispatch(userLogout())
     }
