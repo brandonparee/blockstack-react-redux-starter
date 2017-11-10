@@ -1,5 +1,7 @@
 # Blockstack React Redux Starter
 
+> This is a work in progress. It is also my first exposure to Redux (and Blockstack), so any comments on how to improve anything are appreciated!
+
 Starter kit for building apps with [Blockstack](https://blockstack.org/) using React.
 
 ## Features
@@ -9,6 +11,7 @@ Starter kit for building apps with [Blockstack](https://blockstack.org/) using R
 * Write files to Blockstack
 * Routing with [`react-router`](https://github.com/ReactTraining/react-router)
   * `Authenticated` and `Public` components to create routes only accessible when either signed in or not
+* Basic styling using [`bulma`](https://github.com/jgthms/bulma)
 * State management with [`redux`](https://github.com/reactjs/redux)
 * Code formatting using [`standard`](https://github.com/standard/standard)
   * `yarn run standard` for linting
