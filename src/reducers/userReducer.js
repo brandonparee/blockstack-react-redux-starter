@@ -1,3 +1,12 @@
+import {
+  FETCH_USER_DATA,
+  USER_LOGIN,
+  USER_LOGOUT,
+  USER_HANDLE_LOGIN,
+  USER_LOGGED_IN,
+  USER_LOGIN_ERROR
+} from '../actions/userActions.js'
+
 const initialState = {
   isAuthenticated: false,
   isLoginPending: false,
@@ -7,22 +16,22 @@ const initialState = {
 
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_USER_DATA':
+    case FETCH_USER_DATA:
       return { ...state, ...action.payload }
-    case 'USER_LOGIN':
+    case USER_LOGIN:
       return { ...state, isLoginPending: true }
-    case 'USER_LOGOUT':
+    case USER_LOGOUT:
       return { ...initialState }
-    case 'USER_HANDLE_LOGIN':
+    case USER_HANDLE_LOGIN:
       return { ...state, isLoginPending: false }
-    case 'USER_LOGGED_IN':
+    case USER_LOGGED_IN:
       return {
         ...state,
         isAuthenticated: true,
         isLoginPending: false,
         profile: action.payload
       }
-    case 'USER_LOGIN_ERROR':
+    case USER_LOGIN_ERROR:
       return { ...state, error: action.payload }
     default:
       return state
