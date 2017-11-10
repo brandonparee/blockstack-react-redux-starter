@@ -1,9 +1,6 @@
 import React from 'react'
-import * as blockstack from 'blockstack'
 
 const Secret = () => {
-  console.log(blockstack.loadUserData())
-
   return (
     <div>
       <h2>Super Secret!</h2>

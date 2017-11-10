@@ -13,8 +13,6 @@ import './index.css'
 import App from './layouts/App'
 import registerServiceWorker from './registerServiceWorker'
 
-console.log(userReducer)
-
 // Setup for react-router
 const history = createHistory()
 const middleware = routerMiddleware(history)
