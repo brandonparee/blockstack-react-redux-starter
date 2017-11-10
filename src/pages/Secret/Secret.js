@@ -26,13 +26,13 @@ const Secret = ({user, file, getFile, putFile, ...rest}) => {
     <div>
       <h2>Super Secret!</h2>
       <p>This route is only accessible while logged in!</p>
-      <button onClick={() => putFile('test.txt', 'Lorem ipsum', true)}>Put Encrypted File</button>
+      <button className='button' onClick={() => putFile('test.txt', 'Lorem ipsum', true)}>Put Encrypted File</button>
       <br />
-      <button onClick={() => putFile('test.txt', 'Lorem ipsum')}>Put Unencrypted File</button>
+      <button className='button' onClick={() => putFile('test.txt', 'Lorem ipsum')}>Put Unencrypted File</button>
       <br />
-      <button onClick={() => getFile('test.txt')}>Get File</button>
+      <button className='button' onClick={() => getFile('test.txt')}>Get File</button>
       <br />
-      <button onClick={() => getFile('test.txt', true)}>Get File and Decrypt</button>
+      <button className='button' onClick={() => getFile('test.txt', true)}>Get File and Decrypt</button>
       {
         file.content ? <p>File Contents: {file.content}</p> : null
       }

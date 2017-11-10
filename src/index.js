@@ -11,6 +11,7 @@ import { userReducer } from './reducers/userReducer'
 import { fetchUserData } from './actions/userActions'
 import { fileReducer } from './reducers/fileReducer'
 import './index.css'
+import 'bulma/css/bulma.css'
 import App from './layouts/App'
 import registerServiceWorker from './registerServiceWorker'
 
