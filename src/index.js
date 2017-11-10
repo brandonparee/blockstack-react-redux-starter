@@ -9,17 +9,22 @@ import thunkMiddleware from 'redux-thunk'
 
 import { userReducer } from './reducers/userReducer'
 import { fetchUserData } from './actions/userActions'
+import { fileReducer } from './reducers/fileReducer'
 import './index.css'
 import App from './layouts/App'
 import registerServiceWorker from './registerServiceWorker'
+import * as blockstack from 'blockstack'
 
 // Setup for react-router
 const history = createHistory()
 const middleware = routerMiddleware(history)
 
+window.blockstack = blockstack
+
 // Setup for redux
 const store = createStore(
   combineReducers({
+    file: fileReducer,
     user: userReducer,
     router: routerReducer
   }),

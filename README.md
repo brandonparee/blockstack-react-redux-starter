@@ -5,9 +5,11 @@ Starter kit for building apps with [Blockstack](https://blockstack.org/) using R
 ## Features
 
 * Authentication with Blockstack using [`blockstack.js`](https://github.com/blockstack/blockstack.js)
+* Read files from Blockstack
+* Write files to Blockstack
 * Routing with [`react-router`](https://github.com/ReactTraining/react-router)
   * `Authenticated` and `Public` components to create routes only accessible when either signed in or not
-* Upcoming: State management with [`redux`](https://github.com/reactjs/redux)
+* State management with [`redux`](https://github.com/reactjs/redux)
 * Code formatting using [`standard`](https://github.com/standard/standard)
   * `yarn run standard` for linting
   * `yarn run standard-fix` for automatic code formatting

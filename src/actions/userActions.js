@@ -2,6 +2,7 @@ import * as blockstack from 'blockstack'
 
 export const FETCH_USER_DATA = 'FETCH_USER_DATA'
 export const USER_LOGIN = 'USER_LOGIN'
+export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
 export const USER_LOGOUT = 'USER_LOGOUT'
 export const USER_HANDLE_LOGIN = 'USER_HANDLE_LOGIN'
 export const USER_LOGGED_IN = 'USER_LOGGED_IN'
@@ -56,6 +57,7 @@ export const handleBlockstackLogin = () => {
       .then(
         res => {
           window.location.replace(`${window.location.origin}/authenticated-route`)
+          dispatch({ type: USER_LOGIN_SUCCESS })
           dispatch(fetchUserData())
         },
 
