@@ -12,7 +12,7 @@ export const userReducer = (state=initialState, action) => {
     case 'USER_LOGIN':
       return { ...state, isLoginPending: true }
     case 'USER_LOGOUT':
-      return { ...state, isAuthenticated: false }
+      return { ...initialState}
     case 'USER_HANDLE_LOGIN':
       return { ...state, isLoginPending: false }
     case 'USER_LOGGED_IN':

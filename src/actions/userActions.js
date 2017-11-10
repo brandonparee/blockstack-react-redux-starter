@@ -14,7 +14,7 @@ export const fetchUserData = () => {
     return {
       type,
       payload: {
-        authenticated: true,
+        isAuthenticated: true,
         profile: blockstack.loadUserData()
         }
     }
@@ -50,6 +50,8 @@ export const handleBlockstackLogin = () => {
   return (dispatch) => {
     dispatch({ type: USER_HANDLE_LOGIN })
 
+    // Handle sign in from Blockstack after redirect from bBlockstack browser
+    // Once sign in completes (promise is fulfilled), redirect to an authenticated only route
     return blockstack.handlePendingSignIn()
       .then(
         res => {

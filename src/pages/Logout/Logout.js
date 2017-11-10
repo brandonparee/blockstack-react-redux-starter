@@ -1,11 +1,27 @@
 import React from 'react'
+import { userLogout } from '../../actions/userActions'
+import { connect } from 'react-redux'
 import * as blockstack from 'blockstack'
 
-const Logout = ({component, ...rest}) => {
+const mapStateToProps = ({user}) => {
+  return {
+    user
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return  {
+    handleLogout: () => {
+      dispatch(userLogout())
+    }
+  }
+}
+
+const Logout = ({user, handleLogout, ...rest}) => {
   // Only attept `signUserOut` if logged in, since this route is accessible
   // when not logged in
-  if (blockstack.isUserSignedIn()) {
-    blockstack.signUserOut()
+  if (user.isAuthenticated) {
+    handleLogout()
   }
 
   return (
@@ -13,4 +29,6 @@ const Logout = ({component, ...rest}) => {
   )
 }
 
-export default Logout
+const LogoutContainer = connect(mapStateToProps, mapDispatchToProps)(Logout)
+
+export default LogoutContainer

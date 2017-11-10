@@ -18,8 +18,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const HandleLogin = ({user, handlePendingSignIn, ...rest}) => {
-  // Handle sign in from blockstack after redirect
-  // Once sign in completes (promise is fulfilled), redirect to an authenticated only route
   if (user.isLoginPending) {
     handlePendingSignIn()
   }
