@@ -10,6 +10,7 @@ import thunkMiddleware from 'redux-thunk'
 import { userReducer } from './reducers/userReducer'
 import { fetchUserData } from './actions/userActions'
 import { fileReducer } from './reducers/fileReducer'
+import { editorReducer } from './reducers/editorReducer'
 import './index.css'
 import 'bulma/css/bulma.css'
 import App from './layouts/App'
@@ -22,6 +23,7 @@ const middleware = routerMiddleware(history)
 // Setup for redux
 const store = createStore(
   combineReducers({
+    editor: editorReducer,
     file: fileReducer,
     user: userReducer,
     router: routerReducer
