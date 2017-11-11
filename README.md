@@ -43,7 +43,7 @@ The application will be available at `localhost:3000`
 
 > I'm getting a 'Sign in Request' error when attempting to authenticate with Blockstack
 
-You'll need to disable CORS stuff for only `localhost:3000`. I use
+You'll need to enable CORS stuff for only `localhost:3000`. I use
 [Allow-Control-Allow-Origin: *](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi/related?hl=en)
 for Chrome.
 The only rule I have enabled in the extension is `http://localhost:3000/*`. You'll need to disable the catch all rule (`*://*/*`). If you are still getting the error open the extension and disable then re-enable it using the switch.  
