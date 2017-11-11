@@ -56,7 +56,7 @@ export const handleBlockstackLogin = () => {
     return blockstack.handlePendingSignIn()
       .then(
         res => {
-          window.location.replace(`${window.location.origin}/authenticated-route`)
+          window.location.replace(`${window.location.origin}/`)
           dispatch({ type: USER_LOGIN_SUCCESS })
           dispatch(fetchUserData())
         },
