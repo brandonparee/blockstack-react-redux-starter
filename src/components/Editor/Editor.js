@@ -20,11 +20,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       const { value } = e.target
       dispatch(editorFilePathChange(value))
     },
-    handleSaveButton: (path, content) => {
-      dispatch(putBlockstackFile(path, content))
+    handleSaveButton: () => {
+      dispatch(putBlockstackFile({ context: 'editor' }))
     },
-    handleGetFileButton: (path) => {
-      dispatch(getBlockstackFile(path))
+    handleGetFileButton: () => {
+      dispatch(getBlockstackFile({ context: 'editor' }))
     }
   }
 }
@@ -46,11 +46,10 @@ const Editor = ({editor, handleFileContentChange, handleFilePathChange, handleSa
       </div>
       <div className='field is-grouped'>
         <div className='control'>
-          {/* TODO Figure out way to get state in the dispatch instead of passing data in here */}
-          <button className='button' onClick={() => handleSaveButton(editor.path, editor.content)}>Save</button>
+          <button className='button' onClick={handleSaveButton}>Save</button>
         </div>
         <div className='control'>
-          <button className='button' onClick={() => handleGetFileButton(editor.path)}>Get File</button>
+          <button className='button' onClick={handleGetFileButton}>Get File</button>
         </div>
       </div>
       <p>Save will save the file contents to the file path provided</p>

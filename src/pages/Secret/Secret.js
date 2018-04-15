@@ -14,10 +14,10 @@ const mapStateToProps = ({file, user}) => {
 const mapDispatchToProps = (dispatch, nextProps) => {
   return {
     getFile: (path, decrypt) => {
-      dispatch(getBlockstackFile(path, decrypt))
+      dispatch(getBlockstackFile({path, decrypt}))
     },
     putFile: (path, content, encrypt) => {
-      dispatch(putBlockstackFile(path, content, encrypt))
+      dispatch(putBlockstackFile({path, content, encrypt}))
     }
   }
 }

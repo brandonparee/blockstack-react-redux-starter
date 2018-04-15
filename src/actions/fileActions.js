@@ -7,9 +7,13 @@ export const PUT_FILE_REQUEST = 'PUT_FILE_REQUEST'
 export const PUT_FILE_SUCCESS = 'PUT_FILE_SUCCESS'
 export const PUT_FILE_ERROR = 'PUT_FILE_ERROR'
 
-export const getBlockstackFile = (path, decrypt = false) => {
-  return (dispatch) => {
+export const getBlockstackFile = ({ context = '', decrypt, path = '' }) => {
+  return (dispatch, getState) => {
     dispatch({ type: FETCH_FILE_REQUEST })
+
+    if (context === 'editor') {
+      path = getState().editor.path
+    }
 
     return blockstack.getFile(path, decrypt)
       .then(
@@ -27,9 +31,14 @@ export const getBlockstackFile = (path, decrypt = false) => {
   }
 }
 
-export const putBlockstackFile = (path, content, encrypt = false) => {
-  return (dispatch) => {
+export const putBlockstackFile = ({ context = '', encrypt, content, path }) => {
+  return (dispatch, getState) => {
     dispatch({ type: PUT_FILE_REQUEST })
+
+    if (context === 'editor') {
+      path = getState().editor.path
+      content = getState().editor.content
+    }
 
     return blockstack.putFile(path, content, encrypt)
       .then(
