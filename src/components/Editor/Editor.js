@@ -20,11 +20,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       const { value } = e.target
       dispatch(editorFilePathChange(value))
     },
-    handleSaveButton: () => {
-      dispatch(putBlockstackFile({ context: 'editor' }))
+    handleSaveButton: (encrypt) => {
+      dispatch(putBlockstackFile({ context: 'editor', encrypt }))
     },
-    handleGetFileButton: () => {
-      dispatch(getBlockstackFile({ context: 'editor' }))
+    handleGetFileButton: (decrypt) => {
+      dispatch(getBlockstackFile({ context: 'editor', decrypt }))
     }
   }
 }
@@ -46,10 +46,16 @@ const Editor = ({editor, handleFileContentChange, handleFilePathChange, handleSa
       </div>
       <div className='field is-grouped'>
         <div className='control'>
-          <button className='button' onClick={handleSaveButton}>Save</button>
+          <button className='button' onClick={() => handleSaveButton(true)}>Save and Encrypt</button>
         </div>
         <div className='control'>
-          <button className='button' onClick={handleGetFileButton}>Get File</button>
+          <button className='button' onClick={() => handleGetFileButton(true)}>Get File and Decrypt</button>
+        </div>
+        <div className='control'>
+          <button className='button' onClick={() => handleSaveButton(false)}>Save without Encrypting</button>
+        </div>
+        <div className='control'>
+          <button className='button' onClick={() => handleGetFileButton(false)}>Get File without Decrypting</button>
         </div>
       </div>
       <p>Save will save the file contents to the file path provided</p>

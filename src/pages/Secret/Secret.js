@@ -31,7 +31,7 @@ const Secret = ({user, file, getFile, putFile, ...rest}) => {
       <p>These buttons will place 'Lorem Ipsum' into a file called 'test.txt'</p>
       <p>After pressing the putton try to do a 'Get File' for 'test.txt'!</p>
       <button className='button' onClick={() => putFile('test.txt', 'Lorem ipsum', true)}>Put Encrypted File</button>
-      <button className='button' onClick={() => putFile('test.txt', 'Lorem ipsum')}>Put Unencrypted File</button>
+      <button className='button' onClick={() => putFile('test.txt', 'Lorem ipsum', false)}>Put Unencrypted File</button>
       <hr />
       <Editor />
     </div>
